@@ -64,7 +64,6 @@ describe("checkForShip", () => {
 });
 
 // damage suite for ships
-
 describe("damageShip", () => {
   var damageShip = require("../game_logic/ship_methods").damageShip;
   it("should register damage on a given ship at a given location", function () {
@@ -74,5 +73,17 @@ describe("damageShip", () => {
     };
     damageShip(ship, [0, 0]);
     expect(ship.damage).to.not.be.empty;
+  });
+});
+
+//fire suite
+describe("fire", () => {
+  var fire = require("../game_logic/ship_methods").fire;
+  it("it should record damage on the given players ship at a given coordinate", () => {
+    var player = {
+      ships: [{ locations: [[0, 0]],damage=[] }],
+    };
+    fire(player,[0,0])
+    expect(player.ships[0].damage[0])
   });
 });
