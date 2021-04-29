@@ -15,4 +15,13 @@ function checkForShip(player, coordinates) {
   return shipPresent;
 }
 
+function damageShip(ship, coordinates) {
+  ship.locations.map((shipLoc) => {
+    if (shipLoc[0] == coordinates[0] && shipLoc[1] == coordinates[1]) {
+      ship.damage.push(1);
+    }
+  });
+}
+
 module.exports.checkForShip = checkForShip;
+module.exports.damageShip = damageShip;
