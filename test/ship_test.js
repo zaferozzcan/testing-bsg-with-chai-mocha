@@ -26,4 +26,38 @@ describe("checkForShip", () => {
     expect(checkForShip(player, [9, 9])).to.be.false;
     expect(checkForShip(player, [0, 0])).to.be.ok;
   });
+  it("should handle ships located at more than one locations", () => {
+    let player = {
+      ships: [
+        {
+          locations: [
+            [0, 0],
+            [0, 1],
+          ],
+        },
+      ],
+    };
+    expect(checkForShip(player, [9, 9])).to.be.false;
+    expect(checkForShip(player, [0, 0])).to.be.ok;
+  });
+  it("should handle checking multiple ships", () => {
+    let player = {
+      ships: [
+        {
+          locations: [
+            [0, 0],
+            [0, 1],
+          ],
+        },
+        {
+          locations: [
+            [0, 0],
+            [1, 1],
+          ],
+        },
+      ],
+    };
+    expect(checkForShip(player, [9, 9])).to.be.false;
+    expect(checkForShip(player, [1, 1])).to.be.ok;
+  });
 });
